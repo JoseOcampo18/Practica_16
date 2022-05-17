@@ -25,11 +25,13 @@ app.get('/student', function (req, res) {
 })
 
 //ruta student para POST
-app.post('/student', (req, res) => {
-    res.send(`First Name es: ${req.body.fname}, Last Name es: ${req.body.lname}`);
+app.post('/student', express.urlencoded({ extended: false }), (req, res) => {
+    res.send(`First Name es: ${req.body.fname}, 
+    Last Name es: ${req.body.lname}`);
 })
 
-//Se agrega como parametro el callback, para que se ejecute ANTES que el route handeler
+//Se agrega como parametro el callback, para que se ejecute ANTES que el route handler
+
 app.post('/personjson', express.json({type: '*/*'}, (req, res) => {
     console.log('El objeto contiene:' , (req.body));
     console.log('Nombre:' , req.body.firstname);

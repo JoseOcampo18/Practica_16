@@ -7,6 +7,7 @@
         <title>Document</title>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     </head>
+    <!-- Estructura del formulario de la pagina -->
     <body>
         <form action="/student" method="POST">
             <label for="fname">First name:</label>
@@ -15,13 +16,14 @@
             <input type="text" id="lname" name="lname"><br><br>
             <input type="submit" value="Submit">
         </form>
+        <!-- Llamar al endpoint al cargar la pagina -->
         <script>
             $.ajax({
-                typw: "POST",
-                URL: "/personjson",
-                data: JSON.stringify({ firstname: 'JuaN', lastname: 'Parra'}),
+                type: "POST",
+                url: "/personjson",
+                data: JSON.stringify({ firstname: 'Juan', lastname: 'Parra'}),
                 dataType: 'json',
-                contentType: 'aplication/json'
+                contentType: 'application/json'
             });
         </script>
     </body>
